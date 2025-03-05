@@ -3,7 +3,7 @@ const config = {
   jsxSingleQuote: true,
   semi: false,
   singleQuote: true,
-  trailingComma: "es5",
-};
+  trailingComma: 'es5',
+}
 
-export default config;
+export default config
