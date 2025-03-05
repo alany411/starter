@@ -16,6 +16,23 @@ const compat = new FlatCompat({
 
 const nextConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    rules: {
+      'react/jsx-boolean-value': ['error', 'always'],
+      'react/jsx-sort-props': [
+        'error',
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          reservedFirst: true,
+          multiline: 'last',
+          ignoreCase: true,
+          noSortAlphabetically: false,
+          locale: 'en',
+        },
+      ],
+    },
+  },
 ]
 
 const typescriptConfig = tseslint.config(
@@ -82,9 +99,11 @@ const simpleImportSortConfig = [
 
 const prettierConfig = [prettierPluginConfig]
 
-export default [
+const eslintConfig = [
   ...nextConfig,
   ...typescriptConfig,
   ...simpleImportSortConfig,
   ...prettierConfig,
 ]
+
+export default eslintConfig
